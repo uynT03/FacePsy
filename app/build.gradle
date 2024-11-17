@@ -2,9 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'maven-publish'
+// add this to use another dependency rather than bintray-release
 apply from: '../dependencies.gradle'
 
 android {
+//    Dong Uyen added ndk version specify
+    ndkVersion "20.0.5594570"
+    compileSdkVersion versions.compileSdk
     compileSdkVersion versions.compileSdk
     defaultConfig {
         applicationId "com.rahulislam.facepsy"

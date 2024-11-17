@@ -2,13 +2,18 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply from: '../dependencies.gradle'
 
-apply from: '../bintrayconfig.gradle'
+//apply from: '../bintrayconfig.gradle'
+apply plugin: 'com.diffplug.spotless'  // This applies the Spotless plugin
+apply plugin: 'com.google.gms.google-services'
+
 
 android {
     compileSdkVersion versions.compileSdk
     buildToolsVersion versions.buildTools
 
     compileOptions {
+        ext.modulePackageId = 'com.cottacush.HiddenCamera'
+
         sourceCompatibility 1.8
         targetCompatibility 1.8
 
@@ -40,6 +45,7 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:' + versions.kotlin
     implementation 'androidx.camera:camera-core:' + versions.cameraX
     implementation 'androidx.camera:camera-camera2:' + versions.cameraX
+    implementation platform('com.google.firebase:firebase-bom:33.6.0')
 }
 
-apply from: '../spotless.gradle'
+//apply from: '../spotless.gradle'

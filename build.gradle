@@ -1,24 +1,21 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 apply from: './dependencies.gradle'
 
 buildscript {
-    apply from: './dependencies.gradle'
-    ext.kotlin_version = '1.3.21'
     repositories {
         google()
         jcenter()
         mavenCentral()
-        mavenLocal()
+        // Add the plugin repository if it's not already included
+        gradlePluginPortal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:' + versions.gradlePlugin
-        classpath "com.diffplug.spotless:spotless-plugin-gradle:" + versions.spotlessPlugin
-        classpath 'com.novoda:bintray-release:' + versions.bintrayRelease
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:' + versions.kotlin
-        classpath 'com.google.gms:google-services:4.3.3'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath "com.android.tools.build:gradle:4.2.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21" // Compatible Kotlin version
+//        classpath "com.google.gms:google-services:4.3.3"
+        classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.0.5' // Add the Spotless plugin version you need
+        classpath 'com.google.gms:google-services:4.3.15'
+
     }
 }
 
@@ -27,10 +24,49 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
-        mavenLocal()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+//// Top-level build file where you can add configuration options common to all sub-projects/modules.
+//
+//apply from: './dependencies.gradle'
+//
+//buildscript {
+//    apply from: './dependencies.gradle'
+//    ext.kotlin_version = '1.3.21'
+//    repositories {
+//        google()
+//        jcenter()
+//        mavenCentral()
+//        mavenLocal()
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:' + versions.gradlePlugin
+//        classpath 'com.android.tools.build:gradle:' + versions.gradlePlugin
+//        classpath "com.diffplug.spotless:spotless-plugin-gradle:" + versions.spotlessPlugin
+////        Comment out the line to fix artifact bug
+////        classpath 'com.novoda:bintray-release:' + versions.bintrayRelease
+//        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:' + versions.kotlin
+//        classpath 'com.google.gms:google-services:4.3.3'
+//        // NOTE: Do not place your application dependencies here; they belong
+//        // in the individual module build.gradle files
+//    }
+//}
+//
+//allprojects {
+//    repositories {
+//        google()
+//        jcenter()
+//        mavenCentral()
+//        mavenLocal()
+//    }
+//}
+//
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
